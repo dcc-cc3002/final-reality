@@ -3,6 +3,7 @@ ChangeLog
 
 Version 1.0
 -----------
+- (B.5) Updated License
 - (B.4) Implementation and testing of Enemy class (ensured 100% branch coverage)
 - (B.3) Created .gitignore
 - (B.2) Implementation of most base elements of the model
