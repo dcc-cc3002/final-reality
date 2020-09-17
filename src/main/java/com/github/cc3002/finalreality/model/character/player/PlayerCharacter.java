@@ -31,6 +31,11 @@ public class PlayerCharacter extends AbstractCharacter {
   }
 
   @Override
+  public int hashCode() {
+    return Objects.hash(getCharacterClass());
+  }
+
+  @Override
   public boolean equals(final Object o) {
     if (this == o) {
       return true;
@@ -39,11 +44,7 @@ public class PlayerCharacter extends AbstractCharacter {
       return false;
     }
     final PlayerCharacter that = (PlayerCharacter) o;
-    return getCharacterClass() == that.getCharacterClass();
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(getCharacterClass());
+    return getCharacterClass() == that.getCharacterClass()
+        && getName().equals(that.getName());
   }
 }

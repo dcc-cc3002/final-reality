@@ -1,8 +1,13 @@
 ChangeLog
 =========
 
+Version 2.0
+-----------
+Write your changes in here
+
 Version 1.0
 -----------
+- (RC.1) Implemented missing tests
 - (B.5) Updated License
 - (B.4) Implementation and testing of Enemy class (ensured 100% branch coverage)
 - (B.3) Created .gitignore

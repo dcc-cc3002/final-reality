@@ -1,6 +1,7 @@
 package com.github.cc3002.finalreality.model.character;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
 import com.github.cc3002.finalreality.model.character.player.CharacterClass;
@@ -53,13 +54,18 @@ class PlayerCharacterTest extends AbstractCharacterTest {
    */
   @Test
   void constructorTest() {
+    var enemy = new Enemy("Enemy", 10, turns);
     for (var character :
         testCharacters) {
       var characterClass = character.getCharacterClass();
       var characterName = characterNames.get(characterClass);
       checkConstruction(new PlayerCharacter(characterName, turns, characterClass),
           character,
-          null, null);
+          new PlayerCharacter("Test", turns, characterClass),
+          new PlayerCharacter(characterName, turns,
+              characterClass == CharacterClass.THIEF ? CharacterClass.BLACK_MAGE
+                  : CharacterClass.THIEF));
+      assertNotEquals(character, enemy);
     }
 
   }

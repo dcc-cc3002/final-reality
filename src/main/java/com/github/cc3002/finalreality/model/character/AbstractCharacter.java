@@ -36,7 +36,7 @@ public abstract class AbstractCharacter implements ICharacter {
     if (this instanceof PlayerCharacter) {
       scheduledExecutor
           .schedule(this::addToQueue, equippedWeapon.getWeight() / 10, TimeUnit.SECONDS);
-    } else if (this instanceof Enemy) {
+    } else {
       var enemy = (Enemy) this;
       scheduledExecutor
           .schedule(this::addToQueue, enemy.getWeight() / 10, TimeUnit.SECONDS);
