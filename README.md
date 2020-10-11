@@ -16,4 +16,4 @@ enemies controlled by the computer.
 
 ---
 
-**The rest of the documentation is left for the users of this template to complete**
+Una vez cargado el projecto, se procede a correr el archivo build.grandle.kts, con lo cual el projecto estará listo para correr. Inicialmente, se crearon las interfases ICharacter y Iweapon, los cuales conforman la base del juego. Cada una fue implementada en una clase abstracta, donde se definian los métodos antes descritos en las interfases correspondientes. A partir de estas clases abstractas, se especializaron distintas clases con sus propios atributos y métodos, tal es el caso de AbstractCharacter, el cual se especializa en PlayerCharacter y Enemy.
