@@ -7,8 +7,13 @@ plugins {
     id("jacoco")
 }
 
+java {
+    modularity.inferModulePath.set(true)
+}
+
 application {
-    mainClassName = "$moduleName/com.github.cc3002.finalreality.gui.FinalReality"
+    mainModule.set(moduleName)
+    mainClass.set("com.github.cc3002.finalreality.gui.FinalReality")
 }
 
 group = "com.github.cc3002"

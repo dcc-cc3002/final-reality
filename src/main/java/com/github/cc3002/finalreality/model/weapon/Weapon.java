@@ -17,8 +17,6 @@ public class Weapon {
 
   /**
    * Creates a weapon with a name, a base damage, speed and it's type.
-   *
-   * @see WeaponType
    */
   public Weapon(final String name, final int damage, final int weight,
       final WeaponType type) {
@@ -36,6 +34,9 @@ public class Weapon {
     return damage;
   }
 
+  /**
+   * Returns the weight of the weapon.
+   */
   public int getWeight() {
     return weight;
   }
