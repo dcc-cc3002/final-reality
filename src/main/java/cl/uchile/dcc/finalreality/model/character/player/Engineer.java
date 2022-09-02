@@ -14,45 +14,45 @@ import java.util.concurrent.BlockingQueue;
 import org.jetbrains.annotations.NotNull;
 
 /**
- * Common functionalities for characters controlled by the player.
+ * An {@code Engineer} is a type of {@code PlayerCharacter} that can equip Axes and Bows.
  *
  * @author <a href="https://www.github.com/r8vnhill">R8V</a>
  * @author ~Your name~
- * @version 2.1.22.2
+ * @version 2.1.22.3
  */
-public class Knight extends AbstractPlayerCharacter {
+public class Engineer extends AbstractPlayerCharacter {
 
   /**
-   * Creates a new knight playable character.
+   * Creates a new character.
    *
    * @param name
    *     the character's name
    * @param turnsQueue
    *     the queue with the characters waiting for their turn
    */
-  public Knight(@NotNull final String name,
+  protected Engineer(@NotNull final String name,
       @NotNull final BlockingQueue<GameCharacter> turnsQueue) {
     super(name, turnsQueue);
   }
 
   @Override
   protected Object clone() throws CloneNotSupportedException {
-    final Knight clone = (Knight) super.clone();
-    clone.name = this.name;
-    clone.turnsQueue = this.turnsQueue;
+    var clone = (Engineer) super.clone();
+    clone.name = name;
+    clone.turnsQueue = turnsQueue;
     return clone;
   }
 
   @Override
   public String toString() {
-    return "Knight{" + "turnsQueue=" + turnsQueue
+    return "Engineer{" + "turnsQueue=" + turnsQueue
         + ", name='" + name + '\''
         + '}';
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(Knight.class, name);
+    return Objects.hash(Engineer.class, name);
   }
 
   @Override
@@ -60,10 +60,10 @@ public class Knight extends AbstractPlayerCharacter {
     if (this == o) {
       return true;
     }
-    if (!(o instanceof final Knight that)) {
+    if (!(o instanceof final Engineer that)) {
       return false;
     }
-    return this.name.equals(that.name)
-        && this.hashCode() == that.hashCode();
+    return name.equals(that.name)
+        && hashCode() == that.hashCode();
   }
 }

@@ -8,11 +8,11 @@ import javafx.stage.Stage;
 
 /**
  * Main entry point for the application.
- * <p>
- * <Complete here with the details of the implemented application>
  *
- * @author Ignacio Slater Muñoz.
- * @author <Your name>
+ * <p>~Complete here with the details of the implemented application~
+ *
+ * @author <a href="https://www.github.com/r8vnhill">R8V</a>
+ * @author ~Your name~
  */
 public class FinalReality extends Application {
 

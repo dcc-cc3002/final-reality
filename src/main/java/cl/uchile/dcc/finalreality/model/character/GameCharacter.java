@@ -7,8 +7,8 @@ import cl.uchile.dcc.finalreality.model.weapon.Weapon;
  * This represents a character from the game.
  * A character can be controlled by the player or by the CPU (an enemy).
  *
- * @author Ignacio Slater Muñoz.
- * @author <Your name>
+ * @author <a href="https://www.github.com/r8vnhill">R8V</a>
+ * @author ~Your name~
  */
 public interface GameCharacter {
 
@@ -32,9 +32,4 @@ public interface GameCharacter {
    * Return this character's equipped weapon.
    */
   Weapon getEquippedWeapon();
-
-  /**
-   * Returns this character's class.
-   */
-  CharacterClass getCharacterClass();
 }

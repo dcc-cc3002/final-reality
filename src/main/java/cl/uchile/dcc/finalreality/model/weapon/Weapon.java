@@ -5,15 +5,15 @@ import java.util.Objects;
 /**
  * A class that holds all the information of a weapon.
  *
- * @author Ignacio Slater Muñoz.
- * @author <Your name>
+ * @author <a href="https://www.github.com/r8vnhill">R8V</a>
+ * @author ~Your name~
  */
 public class Weapon {
 
-  private final String name;
-  private final int damage;
-  private final int weight;
-  private final WeaponType type;
+  private String name;
+  private int damage;
+  private int weight;
+  private WeaponType type;
 
   /**
    * Creates a weapon with a name, a base damage, speed and it's type.
@@ -28,10 +28,26 @@ public class Weapon {
 
   private String getName() {
     return name;
+  }  @Override
+  public int hashCode() {
+    return Objects.hash(Weapon.class, name, damage, weight, type);
   }
 
   private int getDamage() {
     return damage;
+  }  @Override
+  public boolean equals(final Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (!(o instanceof final Weapon weapon)) {
+      return false;
+    }
+    return name.equals(weapon.name)
+        && damage == weapon.damage
+        && weight == weapon.weight
+        && type == weapon.type
+        && hashCode() == weapon.hashCode();
   }
 
   /**
@@ -45,23 +61,17 @@ public class Weapon {
     return type;
   }
 
-  @Override
-  public boolean equals(final Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (!(o instanceof Weapon)) {
-      return false;
-    }
-    final Weapon weapon = (Weapon) o;
-    return getDamage() == weapon.getDamage() &&
-        getWeight() == weapon.getWeight() &&
-        getName().equals(weapon.getName()) &&
-        getType() == weapon.getType();
-  }
+
+
+
 
   @Override
-  public int hashCode() {
-    return Objects.hash(getName(), getDamage(), getWeight(), getType());
+  protected Object clone() throws CloneNotSupportedException {
+    var clone = (Weapon) super.clone();
+    clone.name = name;
+    clone.damage = damage;
+    clone.weight = weight;
+    clone.type = type;
+    return clone;
   }
 }

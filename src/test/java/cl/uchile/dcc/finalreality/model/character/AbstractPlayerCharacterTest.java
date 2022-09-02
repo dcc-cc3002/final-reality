@@ -14,8 +14,8 @@ import org.junit.jupiter.api.Test;
 /**
  * Set of tests for the {@code GameCharacter} class.
  *
- * @author Ignacio Slater Muñoz.
- * @author <Your name>
+ * @author <a href="https://www.github.com/r8vnhill">R8V</a>
+ * @author ~Your name~
  * @see AbstractPlayerCharacter
  */
 class AbstractPlayerCharacterTest extends AbstractCharacterTest {
@@ -45,7 +45,7 @@ class AbstractPlayerCharacterTest extends AbstractCharacterTest {
     for (var characterClass :
         characterNames.keySet()) {
       testCharacters.add(
-          new AbstractPlayerCharacter(characterNames.get(characterClass), turns, characterClass));
+          new AbstractPlayerCharacter(characterNames.get(characterClass), turns));
     }
   }
 
@@ -59,12 +59,11 @@ class AbstractPlayerCharacterTest extends AbstractCharacterTest {
         testCharacters) {
       var characterClass = character.getCharacterClass();
       var characterName = characterNames.get(characterClass);
-      checkConstruction(new AbstractPlayerCharacter(characterName, turns, characterClass),
+      checkConstruction(new AbstractPlayerCharacter(characterName, turns),
           character,
-          new AbstractPlayerCharacter("Test", turns, characterClass),
-          new AbstractPlayerCharacter(characterName, turns,
-              characterClass == CharacterClass.THIEF ? CharacterClass.BLACK_MAGE
-                  : CharacterClass.THIEF));
+          new AbstractPlayerCharacter("Test", turns),
+          new AbstractPlayerCharacter(characterName, turns
+          ));
       assertNotEquals(character, enemy);
     }
 

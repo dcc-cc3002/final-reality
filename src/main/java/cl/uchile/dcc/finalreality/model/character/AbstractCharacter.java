@@ -1,7 +1,7 @@
 package cl.uchile.dcc.finalreality.model.character;
 
-import cl.uchile.dcc.finalreality.model.character.player.CharacterClass;
 import cl.uchile.dcc.finalreality.model.character.player.AbstractPlayerCharacter;
+import cl.uchile.dcc.finalreality.model.character.player.CharacterClass;
 import cl.uchile.dcc.finalreality.model.weapon.Weapon;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.Executors;
@@ -12,22 +12,21 @@ import org.jetbrains.annotations.NotNull;
 /**
  * An abstract class that holds the common behaviour of all the characters in the game.
  *
- * @author Ignacio Slater Muñoz.
- * @author <Your name>
+ * @author <a href="https://www.github.com/r8vnhill">R8V</a>
+ * @author ~Your name~
+ * @version 2.1.22.3
  */
 public abstract class AbstractCharacter implements GameCharacter {
 
-  protected final BlockingQueue<GameCharacter> turnsQueue;
-  protected final String name;
-  private final CharacterClass characterClass;
+  protected BlockingQueue<GameCharacter> turnsQueue;
+  protected String name;
   private Weapon equippedWeapon = null;
   private ScheduledExecutorService scheduledExecutor;
 
   protected AbstractCharacter(@NotNull BlockingQueue<GameCharacter> turnsQueue,
-      @NotNull String name, CharacterClass characterClass) {
+      @NotNull String name) {
     this.turnsQueue = turnsQueue;
     this.name = name;
-    this.characterClass = characterClass;
   }
 
   @Override
@@ -70,10 +69,5 @@ public abstract class AbstractCharacter implements GameCharacter {
   @Override
   public Weapon getEquippedWeapon() {
     return equippedWeapon;
-  }
-
-  @Override
-  public CharacterClass getCharacterClass() {
-    return characterClass;
   }
 }
