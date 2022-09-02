@@ -1,7 +1,7 @@
-package com.github.cc3002.finalreality.model.character;
+package cl.uchile.dcc.finalreality.model.character;
 
-import com.github.cc3002.finalreality.model.character.player.CharacterClass;
-import com.github.cc3002.finalreality.model.weapon.Weapon;
+import cl.uchile.dcc.finalreality.model.character.player.CharacterClass;
+import cl.uchile.dcc.finalreality.model.weapon.Weapon;
 
 /**
  * This represents a character from the game.
@@ -10,7 +10,7 @@ import com.github.cc3002.finalreality.model.weapon.Weapon;
  * @author Ignacio Slater Muñoz.
  * @author <Your name>
  */
-public interface ICharacter {
+public interface GameCharacter {
 
   /**
    * Sets a scheduled executor to make this character (thread) wait for {@code speed / 10}

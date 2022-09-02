@@ -1,10 +1,10 @@
-package com.github.cc3002.finalreality.model.character;
+package cl.uchile.dcc.finalreality.model.character;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
-import com.github.cc3002.finalreality.model.weapon.Weapon;
-import com.github.cc3002.finalreality.model.weapon.WeaponType;
+import cl.uchile.dcc.finalreality.model.weapon.Weapon;
+import cl.uchile.dcc.finalreality.model.weapon.WeaponType;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.BlockingQueue;
@@ -17,12 +17,12 @@ import org.junit.jupiter.api.Test;
  *
  * @author Ignacio Slater Muñoz.
  * @author <Your name>
- * @see ICharacter
+ * @see GameCharacter
  */
 public abstract class AbstractCharacterTest {
 
-  protected BlockingQueue<ICharacter> turns;
-  protected List<ICharacter> testCharacters;
+  protected BlockingQueue<GameCharacter> turns;
+  protected List<GameCharacter> testCharacters;
   protected Weapon testWeapon;
 
   /**
@@ -47,14 +47,14 @@ public abstract class AbstractCharacterTest {
     }
   }
 
-  private void tryToEquip(ICharacter character) {
+  private void tryToEquip(GameCharacter character) {
     character.equip(testWeapon);
   }
 
-  protected void checkConstruction(final ICharacter expectedCharacter,
-      final ICharacter testEqualCharacter,
-      final ICharacter sameClassDifferentCharacter,
-      final ICharacter differentClassCharacter) {
+  protected void checkConstruction(final GameCharacter expectedCharacter,
+      final GameCharacter testEqualCharacter,
+      final GameCharacter sameClassDifferentCharacter,
+      final GameCharacter differentClassCharacter) {
     assertEquals(expectedCharacter, testEqualCharacter);
     assertNotEquals(sameClassDifferentCharacter, testEqualCharacter);
     assertNotEquals(testEqualCharacter, differentClassCharacter);

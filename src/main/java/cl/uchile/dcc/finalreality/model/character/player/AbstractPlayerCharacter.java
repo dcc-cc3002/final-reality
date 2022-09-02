@@ -1,7 +1,7 @@
-package com.github.cc3002.finalreality.model.character.player;
+package cl.uchile.dcc.finalreality.model.character.player;
 
-import com.github.cc3002.finalreality.model.character.AbstractCharacter;
-import com.github.cc3002.finalreality.model.character.ICharacter;
+import cl.uchile.dcc.finalreality.model.character.AbstractCharacter;
+import cl.uchile.dcc.finalreality.model.character.GameCharacter;
 import java.util.Objects;
 import java.util.concurrent.BlockingQueue;
 import org.jetbrains.annotations.NotNull;
@@ -10,9 +10,9 @@ import org.jetbrains.annotations.NotNull;
  * A class that holds all the information of a single character of the game.
  *
  * @author Ignacio Slater Muñoz.
- * @author <Your name>
+ * @author ~Your name~
  */
-public class PlayerCharacter extends AbstractCharacter {
+public class AbstractPlayerCharacter extends AbstractCharacter {
 
   /**
    * Creates a new character.
@@ -24,9 +24,8 @@ public class PlayerCharacter extends AbstractCharacter {
    * @param characterClass
    *     the class of this character
    */
-  public PlayerCharacter(@NotNull String name,
-      @NotNull BlockingQueue<ICharacter> turnsQueue,
-      final CharacterClass characterClass) {
+  protected AbstractPlayerCharacter(@NotNull String name,
+      @NotNull BlockingQueue<GameCharacter> turnsQueue, CharacterClass characterClass) {
     super(turnsQueue, name, characterClass);
   }
 
@@ -40,10 +39,10 @@ public class PlayerCharacter extends AbstractCharacter {
     if (this == o) {
       return true;
     }
-    if (!(o instanceof PlayerCharacter)) {
+    if (!(o instanceof AbstractPlayerCharacter)) {
       return false;
     }
-    final PlayerCharacter that = (PlayerCharacter) o;
+    final AbstractPlayerCharacter that = (AbstractPlayerCharacter) o;
     return getCharacterClass() == that.getCharacterClass()
         && getName().equals(that.getName());
   }

@@ -1,4 +1,4 @@
-package com.github.cc3002.finalreality.model.weapon;
+package cl.uchile.dcc.finalreality.model.weapon;
 
 import java.util.Objects;
 
