@@ -3,8 +3,8 @@
 plugins {
     java
     id("application")
-    id("org.openjfx.javafxplugin") version "0.0.8"
-    id("jacoco")
+    id("org.openjfx.javafxplugin") version "0.0.13"
+//    id("jacoco")
 }
 
 java {
@@ -13,10 +13,10 @@ java {
 
 application {
     mainModule.set(moduleName)
-    mainClass.set("com.github.cc3002.finalreality.gui.FinalReality")
+    mainClass.set("cl.uchile.dcc.finalreality.gui.FinalReality")
 }
 
-group = "com.github.cc3002"
+group = "cl.uchile.dcc"
 version = "1.0-RELEASE"
 
 repositories {
@@ -24,12 +24,11 @@ repositories {
 }
 
 dependencies {
-    implementation(group = "org.openjfx", name = "javafx", version = "14-ea+6", ext = "pom")
-    implementation("org.jetbrains:annotations:19.0.0")
-    testImplementation(group = "org.junit.jupiter", name = "junit-jupiter-api",
-            version = "5.1.0")
-    testRuntimeOnly(group = "org.junit.jupiter", name = "junit-jupiter-engine",
-            version = "5.1.0")
+    implementation("org.openjfx:javafx:18.0.2:pom")
+    implementation("org.jetbrains:annotations:23.0.0")
+    implementation("org.apache.commons:commons-lang3:3.12.0")
+    testImplementation("org.junit.jupiter:junit-jupiter-api:5.9.0")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.9.0")
 }
 
 javafx {
@@ -37,8 +36,8 @@ javafx {
     modules = mutableListOf("javafx.controls")
 }
 
-configure<JavaPluginConvention> {
-    sourceCompatibility = JavaVersion.VERSION_11
+configure<JavaPluginExtension> {
+    sourceCompatibility = JavaVersion.VERSION_17
 }
 
 tasks.named<Test>("test") {
