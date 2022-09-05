@@ -7,6 +7,7 @@
  */
 package cl.uchile.dcc.finalreality.model.character.player;
 
+import cl.uchile.dcc.finalreality.exceptions.InvalidStatValueException;
 import cl.uchile.dcc.finalreality.model.character.GameCharacter;
 import java.util.Objects;
 import java.util.concurrent.BlockingQueue;
@@ -34,8 +35,9 @@ public class Thief extends AbstractPlayerCharacter {
    * @param turnsQueue
    *     the queue with the characters waiting for their turn
    */
-  protected Thief(final @NotNull String name, final int maxHp, final int defense,
-      final @NotNull BlockingQueue<GameCharacter> turnsQueue) {
+  public Thief(final @NotNull String name, final int maxHp, final int defense,
+      final @NotNull BlockingQueue<GameCharacter> turnsQueue)
+      throws InvalidStatValueException {
     super(name, maxHp, defense, turnsQueue);
   }
 

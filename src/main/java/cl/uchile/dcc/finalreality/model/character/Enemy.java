@@ -1,5 +1,6 @@
 package cl.uchile.dcc.finalreality.model.character;
 
+import cl.uchile.dcc.finalreality.exceptions.InvalidStatValueException;
 import java.util.Objects;
 import java.util.concurrent.BlockingQueue;
 import org.jetbrains.annotations.NotNull;
@@ -19,7 +20,8 @@ public class Enemy extends AbstractCharacter {
    * play.
    */
   public Enemy(@NotNull final String name, final int weight, int maxHp, int defense,
-      @NotNull final BlockingQueue<GameCharacter> turnsQueue) {
+      @NotNull final BlockingQueue<GameCharacter> turnsQueue)
+      throws InvalidStatValueException {
     super(name, maxHp, defense, turnsQueue);
     this.weight = weight;
   }

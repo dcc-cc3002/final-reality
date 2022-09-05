@@ -3,7 +3,6 @@ package cl.uchile.dcc.finalreality.model.character;
 import cl.uchile.dcc.finalreality.exceptions.InvalidStatValueException;
 import cl.uchile.dcc.finalreality.exceptions.Require;
 import cl.uchile.dcc.finalreality.model.character.player.PlayerCharacter;
-import cl.uchile.dcc.finalreality.model.weapon.Weapon;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
@@ -39,8 +38,8 @@ public abstract class AbstractCharacter implements GameCharacter {
    */
   protected AbstractCharacter(@NotNull String name, int maxHp, int defense,
       @NotNull BlockingQueue<GameCharacter> turnsQueue) throws InvalidStatValueException {
-    Require.statValueAtLeast(maxHp, 1, "Max HP");
-    Require.statValueAtLeast(defense, 0, "Defense");
+    Require.statValueAtLeast(1, maxHp, "Max HP");
+    Require.statValueAtLeast(0, defense, "Defense");
     this.maxHp = maxHp;
     this.currentHp = maxHp;
     this.defense = defense;
@@ -52,12 +51,16 @@ public abstract class AbstractCharacter implements GameCharacter {
   public void waitTurn() {
     scheduledExecutor = Executors.newSingleThreadScheduledExecutor();
     if (this instanceof PlayerCharacter player) {
-      scheduledExecutor.schedule(this::addToQueue,
-          player.getEquippedWeapon().getWeight() / 10, TimeUnit.SECONDS);
+      scheduledExecutor.schedule(
+          /* command = */ this::addToQueue,
+          /* delay = */ player.getEquippedWeapon().getWeight() / 10,
+          /* unit = */ TimeUnit.SECONDS);
     } else {
       var enemy = (Enemy) this;
-      scheduledExecutor
-          .schedule(this::addToQueue, enemy.getWeight() / 10, TimeUnit.SECONDS);
+      scheduledExecutor.schedule(
+          /* command = */ this::addToQueue,
+          /* delay = */ enemy.getWeight() / 10,
+          /* unit = */ TimeUnit.SECONDS);
     }
   }
 
