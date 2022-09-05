@@ -1,6 +1,6 @@
 package cl.uchile.dcc.finalreality.model.character;
 
-import cl.uchile.dcc.finalreality.model.character.player.AbstractPlayerCharacter;
+import cl.uchile.dcc.finalreality.model.character.player.PlayerCharacter;
 import cl.uchile.dcc.finalreality.model.weapon.Weapon;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.Executors;
@@ -21,7 +21,6 @@ public abstract class AbstractCharacter implements GameCharacter {
   protected int defense;
   protected final BlockingQueue<GameCharacter> turnsQueue;
   protected final String name;
-  private Weapon equippedWeapon = null;
   private ScheduledExecutorService scheduledExecutor;
 
   /**
@@ -48,9 +47,9 @@ public abstract class AbstractCharacter implements GameCharacter {
   @Override
   public void waitTurn() {
     scheduledExecutor = Executors.newSingleThreadScheduledExecutor();
-    if (this instanceof AbstractPlayerCharacter) {
-      scheduledExecutor
-          .schedule(this::addToQueue, equippedWeapon.getWeight() / 10, TimeUnit.SECONDS);
+    if (this instanceof PlayerCharacter player) {
+      scheduledExecutor.schedule(this::addToQueue,
+          player.getEquippedWeapon().getWeight() / 10, TimeUnit.SECONDS);
     } else {
       var enemy = (Enemy) this;
       scheduledExecutor
@@ -73,17 +72,5 @@ public abstract class AbstractCharacter implements GameCharacter {
   @Override
   public String getName() {
     return name;
-  }
-
-  @Override
-  public void equip(Weapon weapon) {
-    if (this instanceof AbstractPlayerCharacter) {
-      this.equippedWeapon = weapon;
-    }
-  }
-
-  @Override
-  public Weapon getEquippedWeapon() {
-    return equippedWeapon;
   }
 }
