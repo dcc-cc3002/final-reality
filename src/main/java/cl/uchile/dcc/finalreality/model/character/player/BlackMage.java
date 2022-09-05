@@ -22,6 +22,7 @@ import org.jetbrains.annotations.NotNull;
  * @version 2.0
  */
 public class BlackMage extends AbstractPlayerCharacter {
+
   private int currentMp;
   private final int maxMp;
 
@@ -47,6 +48,7 @@ public class BlackMage extends AbstractPlayerCharacter {
   }
 
   // region : ACCESSORS
+
   /**
    * Returns the character's current MP.
    */
@@ -71,6 +73,7 @@ public class BlackMage extends AbstractPlayerCharacter {
   }
   // endregion
 
+  // region : UTILITY METHODS
   @Override
   public boolean equals(final Object o) {
     if (this == o) {
@@ -96,4 +99,5 @@ public class BlackMage extends AbstractPlayerCharacter {
   public int hashCode() {
     return Objects.hash(BlackMage.class, name, maxHp, defense, maxMp);
   }
+  // endregion
 }

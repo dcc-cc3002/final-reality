@@ -1,5 +1,7 @@
 package cl.uchile.dcc.finalreality.model.character;
 
+import cl.uchile.dcc.finalreality.exceptions.InvalidStatValueException;
+import cl.uchile.dcc.finalreality.exceptions.Require;
 import cl.uchile.dcc.finalreality.model.character.player.PlayerCharacter;
 import cl.uchile.dcc.finalreality.model.weapon.Weapon;
 import java.util.concurrent.BlockingQueue;
@@ -36,7 +38,9 @@ public abstract class AbstractCharacter implements GameCharacter {
    *     the queue with the characters waiting for their turn
    */
   protected AbstractCharacter(@NotNull String name, int maxHp, int defense,
-      @NotNull BlockingQueue<GameCharacter> turnsQueue) {
+      @NotNull BlockingQueue<GameCharacter> turnsQueue) throws InvalidStatValueException {
+    Require.statValueAtLeast(maxHp, 1, "Max HP");
+    Require.statValueAtLeast(defense, 0, "Defense");
     this.maxHp = maxHp;
     this.currentHp = maxHp;
     this.defense = defense;

@@ -7,6 +7,7 @@
  */
 package cl.uchile.dcc.finalreality.model.character.player;
 
+import cl.uchile.dcc.finalreality.exceptions.InvalidStatValueException;
 import cl.uchile.dcc.finalreality.model.character.AbstractCharacter;
 import cl.uchile.dcc.finalreality.model.character.GameCharacter;
 import cl.uchile.dcc.finalreality.model.weapon.Weapon;
@@ -21,6 +22,7 @@ import org.jetbrains.annotations.NotNull;
  */
 public abstract class AbstractPlayerCharacter extends AbstractCharacter implements
     PlayerCharacter {
+
   private Weapon equippedWeapon = null;
 
   /**
@@ -36,8 +38,8 @@ public abstract class AbstractPlayerCharacter extends AbstractCharacter implemen
    *     the queue with the characters waiting for their turn
    */
   protected AbstractPlayerCharacter(@NotNull final String name, final int maxHp,
-      final int defense,
-      @NotNull final BlockingQueue<GameCharacter> turnsQueue) {
+      final int defense, @NotNull final BlockingQueue<GameCharacter> turnsQueue)
+      throws InvalidStatValueException {
     super(name, maxHp, defense, turnsQueue);
   }
 
