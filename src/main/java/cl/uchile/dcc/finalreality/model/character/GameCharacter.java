@@ -1,6 +1,6 @@
 package cl.uchile.dcc.finalreality.model.character;
 
-import cl.uchile.dcc.finalreality.model.weapon.Weapon;
+import cl.uchile.dcc.finalreality.exceptions.InvalidStatValueException;
 
 /**
  * This represents a character from the game.
@@ -21,4 +21,24 @@ public interface GameCharacter {
    * Returns this character's name.
    */
   String getName();
+
+  /**
+   * Returns this character's current HP.
+   */
+  int getCurrentHp();
+
+  /**
+   * Returns this character's max HP.
+   */
+  int getMaxHp();
+
+  /**
+   * Returns this character's defense.
+   */
+  int getDefense();
+
+  /**
+   * Sets this character's current HP to {@code newHp}.
+   */
+  void setCurrentHp(int hp) throws InvalidStatValueException;
 }

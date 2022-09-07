@@ -17,7 +17,7 @@ import org.jetbrains.annotations.NotNull;
  */
 public abstract class AbstractCharacter implements GameCharacter {
 
-  private final int currentHp;
+  private int currentHp;
   protected int maxHp;
   protected int defense;
   protected final BlockingQueue<GameCharacter> turnsQueue;
@@ -79,5 +79,27 @@ public abstract class AbstractCharacter implements GameCharacter {
   @Override
   public String getName() {
     return name;
+  }
+
+  @Override
+  public int getCurrentHp() {
+    return currentHp;
+  }
+
+  @Override
+  public int getMaxHp() {
+    return maxHp;
+  }
+
+  @Override
+  public int getDefense() {
+    return defense;
+  }
+
+  @Override
+  public void setCurrentHp(int hp) throws InvalidStatValueException {
+    Require.statValueAtLeast(0, hp, "Current HP");
+    Require.statValueAtMost(maxHp, hp, "Current HP");
+    currentHp = hp;
   }
 }
