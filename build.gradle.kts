@@ -36,10 +36,6 @@ javafx {
     modules = mutableListOf("javafx.controls")
 }
 
-configure<JavaPluginExtension> {
-    sourceCompatibility = JavaVersion.VERSION_17
-}
-
 tasks.named<Test>("test") {
     useJUnitPlatform()
 }
