@@ -17,7 +17,7 @@ application {
 }
 
 group = "cl.uchile.dcc"
-version = "2.0"
+version = "2.0-RELEASE"
 
 repositories {
     mavenCentral()
