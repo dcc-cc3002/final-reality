@@ -4,7 +4,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
-import cl.uchile.dcc.finalreality.model.character.player.CharacterClass;
 import cl.uchile.dcc.finalreality.model.character.player.AbstractPlayerCharacter;
 import java.util.EnumMap;
 import java.util.Map;

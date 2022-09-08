@@ -5,6 +5,7 @@
  * You should have received a copy of the license along with this
  * work. If not, see <http://creativecommons.org/licenses/by/4.0/>.
  */
+
 package cl.uchile.dcc.finalreality.model.character.player;
 
 import cl.uchile.dcc.finalreality.exceptions.InvalidStatValueException;
@@ -14,8 +15,8 @@ import java.util.concurrent.BlockingQueue;
 import org.jetbrains.annotations.NotNull;
 
 /**
- * A {@code Thief} is a type of Player Character that can equip {@code Sword}s,
- * {@code Knife}s and {@code Bow}s.
+ * A {@link PlayerCharacter} that can equip {@code Sword}s,{@code Knife}s and
+ * {@code Bow}s.
  *
  * @author <a href="https://www.github.com/r8vnhill">R8V</a>
  * @author ~Your name~

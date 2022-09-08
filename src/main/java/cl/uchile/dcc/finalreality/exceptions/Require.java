@@ -11,8 +11,8 @@ package cl.uchile.dcc.finalreality.exceptions;
 /**
  * Class containing a series of methods to check if a condition is met.
  * If the condition is not met, an exception is thrown.
- * <p>
- * This class is {@code final} because it should not be extended.
+ *
+ * <p>This class is {@code final} because it should not be extended.
  * All members of this class should be {@code static} because it is not meant to be
  * instantiated.
  *

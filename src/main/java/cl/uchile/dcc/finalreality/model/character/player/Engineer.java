@@ -5,6 +5,7 @@
  * You should have received a copy of the license along with this
  * work. If not, see <http://creativecommons.org/licenses/by/4.0/>.
  */
+
 package cl.uchile.dcc.finalreality.model.character.player;
 
 import cl.uchile.dcc.finalreality.exceptions.InvalidStatValueException;
@@ -15,12 +16,10 @@ import org.jetbrains.annotations.NotNull;
 
 
 /**
- * An {@code Engineer} is a type of Player Character that can equip {@code Axe}s
- * and {@code Bow}s.
+ * A {@link PlayerCharacter} that can equip {@code Axe}s and {@code Bow}s.
  *
  * @author <a href="https://www.github.com/r8vnhill">R8V</a>
  * @author ~Your name~
- * @version 2.0
  */
 public class Engineer extends AbstractPlayerCharacter {
 
@@ -37,7 +36,7 @@ public class Engineer extends AbstractPlayerCharacter {
    * @param turnsQueue
    *     the queue with the characters waiting for their turn
    */
-  protected Engineer(final @NotNull String name, final int maxHp, final int defense,
+  public Engineer(final @NotNull String name, final int maxHp, final int defense,
       final @NotNull BlockingQueue<GameCharacter> turnsQueue)
       throws InvalidStatValueException {
     super(name, maxHp, defense, turnsQueue);
