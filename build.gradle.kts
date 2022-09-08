@@ -13,11 +13,11 @@ java {
 
 application {
     mainModule.set(moduleName)
-    mainClass.set("cl.uchile.dcc.finalreality.gui.FinalReality")
+//    mainClass.set("cl.uchile.dcc.finalreality.gui.FinalReality")
 }
 
 group = "cl.uchile.dcc"
-version = "1.0-RELEASE"
+version = "2.0"
 
 repositories {
     mavenCentral()
